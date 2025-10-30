@@ -117,3 +117,8 @@ li{
   transform: translateY(4px);
   box-shadow: 0 2px 0 #2f34a3;
 }
+
+.toggle-theme-btn{
+    background-color: rgb(225, 5, 5);
+    color: rgb(15, 117, 220);
+}

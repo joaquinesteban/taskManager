@@ -166,7 +166,9 @@ function editTask(taskItem) {
     if (index !== -1) {
       tasks[index] = newTask;
       localStorage.setItem('tasks', JSON.stringify(tasks));
+      
     }
+    updateLocalStorage()
   }
 }
 
@@ -195,3 +197,27 @@ taskList.addEventListener('click', (event) => {
     editTask(event.target.parentElement);
   }
 });
+
+
+function updateLocalStorage(){
+   const tasks = Array.from(taskList.querySelectorAll('li')).map((li) => li.firstChild.textContent);
+   localStorage.setItem('task',JSON.stringify(tasks));
+    console.log(tasks)
+}
+
+const  themeToggleButton = document.getElementById('toggle-theme-btn');
+
+const currentTheme = localStorage.getItem('theme');
+
+themeToggleButton.addEventListener('click', () => {
+  document.body.classList.toggle('dark-theme');
+  const theme = document.body.classList.contains('dark-theme') 
+  ? 'dark' : 'light';
+  
+  localStorage.setItem('theme', theme);
+  console.log(themeToggleButton)
+})
+
+if(currentTheme === 'dark'){
+  document.body.classList.add('dark-theme');
+}
