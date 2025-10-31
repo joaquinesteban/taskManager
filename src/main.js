@@ -4,11 +4,11 @@ import './style.css'
 document.querySelector('#app').innerHTML = `
   <div>
     <div class="container"> 
-        <div class="theme-toggle"> 
-            <button class="btn liquid" id="toggle-theme-btn">Toggle-theme</button> 
+        <div class="box-title">
+            <h1 class="titulo"></h1> 
         </div> 
         <div class="task-manager"> 
-            <h1>Task Manager</h1> 
+           
             <form id="task-form"> 
                 <input type="text" id="task-input" placeholder="Enter new task" required> 
                 <button class='button-press' type="submit">Add Task</button> 
@@ -106,6 +106,26 @@ document.querySelector('#app').innerHTML = `
 //     taskList.appendChild(createTaskElement(task));
 //   })
 // }
+
+
+
+
+ function requestName(){
+    const name = prompt('¿Cual es tu nombre?');
+    const titulo = document.querySelector('.titulo');
+
+    if(name){
+        titulo.textContent = 'Hola 👋 ' + name +' continuemos con las tareas';
+        document.title = 'Hola 👋 ' + name + ' continuemos con las tareas' ;
+
+    }else{
+
+        titulo.textContent = 'Hola 👋 Visitante';
+        document.title = 'Hola 👋 Visitante';
+    }
+ }
+
+ requestName();
 
 
 const taskForm = document.getElementById('task-form');
